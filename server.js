@@ -38,7 +38,6 @@ app.use("/api/auth", authRoutes); // 👈 This enables /api/auth/login
 //tours
 app.use("/api/tours", tourRoutes);
 
-
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => res.send("OK"));  
