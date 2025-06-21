@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/dbconnection");
@@ -18,14 +19,12 @@ app.use(cors({
 
 // Session
 app.use(session({
-  secret: "admin_secret_key",
+  secret: 'thisissecret',
   resave: false,
   saveUninitialized: false,
-  cookie: {
-    secure: false,
-    httpOnly: true,
-    sameSite: "lax"
-  }
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI
+  })
 }));
 
 // Middleware
