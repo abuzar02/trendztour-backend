@@ -13,7 +13,7 @@ connectDB();
 
 // CORS
 app.use(cors({
-  origin: "http://127.0.0.1:5503",
+  origin: ["http://127.0.0.1:5503", "https://tour-trandz.vercel.app"],
   credentials: true
 }));
 
